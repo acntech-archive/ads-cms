@@ -1,0 +1,84 @@
+<div class="well" ng-init="init()">
+    <h2>Sources - File upload</h2>
+
+    <p>This is the administration screen for file sources</p>
+
+    <p>There are {{fileList.length}} files.</p>
+</div>
+
+<div class="alert alert-danger" ng-show="errorMessage != null">
+    <p><b>Error:</b> {{errorMessage}}</p>
+</div>
+<div class="alert alert-success alert-dismissable" ng-show="successMessage != null">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p><b>Success:</b> {{successMessage}}</p>
+</div>
+
+<div class="panel panel-default">
+    <div id="fileOverview" class="panel panel-body" ngCloak>
+        <table class="table table-striped table-responsive">
+            <thead>
+            <tr>
+                <th style="width: 15%;" class="buttonsCell">
+                    <div class="btn-toolbar editPlayerButtons" ng-show="!addMode">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default glyphicon glyphicon-plus"
+                                    ng-click="toggleAddMode()">
+                            </button>
+                            <button type="button" class="btn btn-default glyphicon glyphicon-refresh"
+                                    ng-click="refreshPlayers()">
+                            </button>
+                        </div>
+                    </div>
+                </th>
+                <th style="width: 75%;"><h2>Filename</h2></th>
+                <th style="width: 25%;"><h2>Created/Updated</h2></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr id="editRow" ng-show="addMode || editMode" class="animate-show">
+                <td class="buttonsCell">
+                    <div class="btn-toolbar editPlayerButtons">
+                        <div class="btn-group">
+                            <button type="button"
+                                    class="btn btn-lg btn-info glyphicon glyphicon-floppy-disk" ng-click="savePlayer()"
+                                    ng-disabled="player == null">
+                            </button>
+                            <button type="button" class="btn  btn-lg btn-warning glyphicon glyphicon-remove"
+                                    ng-click="editMode ? toggleEditMode() :  toggleAddMode()">
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <input type="file" ng-file-select="onFileSelect($files)" multiple/>
+
+                    <div class="response" ng-show="uploadResult.length > 0">
+                        Server Response:
+                        <ul>
+                            <li ng-repeat="result in uploadResult">
+                                <ul>
+                                    <li ng-repeat="item in result">
+                                        <div data-ng-show="item.name">file name: {{item.name}}</div>
+                                        <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
+                                        <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
+                                        <div data-ng-show="item.value">value: {{item.value}}</div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <b class="form-control-static text-muted">{{todaysDate() | amDateFormat:'M/D/YYYY HH:MM'}}</b>
+                </td>
+            </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

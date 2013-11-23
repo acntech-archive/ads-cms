@@ -28,7 +28,7 @@ adsCmsFrontendApp.factory('mediaplayerService', function ($resource, $q) {
    */
 
   var playerResource =
-    $resource('http://localhost:3001/api/player/:id',
+    $resource('http://localhost:5000/api/player/:id',
         { id: '@_id' },
         { update: { method: 'PUT' } }
     );
