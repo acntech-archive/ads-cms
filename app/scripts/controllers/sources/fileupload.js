@@ -26,8 +26,8 @@ adsCmsFrontendApp.controller('FileUploadCtrl', function ($scope, $upload) {
             $scope.progress[i] = 0;
             (function (index) {
                 $scope.upload[index] = $upload.upload({
-                    url: 'upload',
-                    headers: {'myHeaderKey': 'myHeaderVal'},
+                    url: 'http://localhost:5000/api/sources/file',
+                    headers: {},
                     data: {
                         myModel: $scope.myModel
                     },
