@@ -12,8 +12,11 @@
 git clone https://github.com/acntech/ads-cms.git
 cd ads-cms
 npm install
+npm install bower -g
+npm install -g grunt-cli
 bower install (Choose bootstrap 3.0.2 if asked)
 grunt server
+
 
 ```
 Note that the CMS solution needs the API to be running in order to fully function. See [https://github.com/acntech/ads-api](https://github.com/acntech/ads-api)
