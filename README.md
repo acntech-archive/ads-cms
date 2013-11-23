@@ -13,7 +13,8 @@ git clone https://github.com/acntech/ads-cms.git
 cd ads-cms
 npm install
 bower install
-
+grunt server
+Note that the CMS solution needs the API to be running in order to fully function. See [https://github.com/acntech/ads-api](https://github.com/acntech/ads-api)
 ```
 
 You should be able to see the ADS CMS by open a web browser and go to [http://localhost:5000/](http://localhost:5000/)
