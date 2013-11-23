@@ -12,7 +12,7 @@
 git clone https://github.com/acntech/ads-cms.git
 cd ads-cms
 npm install
-bower install
+bower install (Choose bootstrap 3.0.2 if asked)
 grunt server
 
 ```
