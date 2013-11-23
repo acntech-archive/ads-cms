@@ -1,0 +1,30 @@
+{
+    "name": "ads-cms-frontend",
+    "version": "0.0.1",
+    "dependencies": {
+        "gzippo": "~0.2.0",
+        "express": "~3.4.0"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    },
+    "scripts": {
+        "test": "grunt test"
+    },
+    "description": "Accenture Digital Signage CMS Frontend",
+    "repository": {
+        "type": "git",
+        "url": "git@heroku.com:ads-cms-frontend.git"
+    },
+    "keywords": [
+        "angular",
+        "digital-signage",
+        "cms",
+        "accenture"
+    ],
+    "author": "Ismar Slomic",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/ismarslomic/ads-cms-frontend/issues"
+    }
+}

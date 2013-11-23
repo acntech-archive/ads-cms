@@ -1,0 +1,34 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+#mediaPlayerOverview table tr td {
+  vertical-align: middle;
+}
+
+#mediaPlayerOverview .buttonsCell {
+  text-align: center;
+}
+
+#mediaPlayerOverview .editPlayerButtons {
+  display: inline-block;
+}
+
+#mediaPlayerOverview .editLocationCell select {
+  width: 50%;
+  float: left;
+  margin-top: 17px;
+}
+
+#mediaPlayerOverview .locRdioBtns {
+  display: inline-block;
+  padding: 5px 0 0 15px;
+}
+
+
+/*** animations */
+
+
+/*** end animations ***/

@@ -1,0 +1,128 @@
+<div class="well" ng-init="init()">
+  <h2>Media Players</h2>
+  <p>This is the media player administration screen.</p>
+  <p>There are {{playerList.length}} players.</p>
+</div>
+
+<div class="alert alert-danger" ng-show="errorMessage != null">
+  <p><b>Error:</b> {{errorMessage}}</p>
+</div>
+<div class="alert alert-success alert-dismissable" ng-show="successMessage != null">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <p><b>Success:</b> {{successMessage}}</p>
+</div>
+
+<div class="panel panel-default">
+  <div id="mediaPlayerOverview" class="panel panel-body" ngCloak>
+    <table class="table table-striped table-responsive">
+      <thead>
+        <tr>
+          <th style="width: 15%;" class="buttonsCell">
+            <div class="btn-toolbar editPlayerButtons" ng-show="!addMode">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default glyphicon glyphicon-plus" ng-click="toggleAddMode()">
+                  </button>
+                  <button type="button" class="btn btn-default glyphicon glyphicon-refresh" ng-click="refreshPlayers()">
+                  </button>
+              </div>
+            </div>
+          </th>
+          <th style="width: 10%;"><h2>Name</h2></th>
+          <th style="width: 15%;"><h2>IP</h2></th>
+          <th style="width: 20%;"><h2>Location</h2></th>
+          <th style="width: 25%;"><h2>Created/Updated</h2></th>
+          <th><h2>Status</h2></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr id="editRow" ng-show="addMode || editMode" class="animate-show">
+          <td class="buttonsCell">
+            <div class="btn-toolbar editPlayerButtons">
+              <div class="btn-group">
+                <button type="button"
+                  class="btn btn-lg btn-info glyphicon glyphicon-floppy-disk" ng-click="savePlayer()"
+                  ng-disabled="player == null">
+                </button>
+                <button type="button" class="btn  btn-lg btn-warning glyphicon glyphicon-remove" ng-click="editMode ? toggleEditMode() :  toggleAddMode()">
+                </button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <input type="text" class="form-control input-lg" ng-model="player.name" placeholder="Name">
+          </td>
+          <td class="ipCell">
+            <input type="text" class="form-control  input-lg" ng-model="player.ip" placeholder="IP-address">
+          </td>
+          <td class="editLocationCell">
+            <select class="form-control input-lg" ng-model="player.location.floor">
+              <option value="">Floor..</option>
+              <option value="1">Floor 1</option>
+              <option value="2">Floor 2</option>
+              <option value="3">Floor 3</option>
+            </select>
+            <div class="locRdioBtns">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="internal" ng-model="player.location.zone" checked>
+                  Internal
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="external" ng-model="player.location.zone">
+                  External
+                </label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <b class="form-control-static text-muted">{{todaysDate() | amDateFormat:'M/D/YYYY HH:MM'}}</b>
+          </td>
+          <td>
+            <select class="form-control input-lg" ng-model="player.isActive">
+              <option value="">Choose..</option>
+              <option value="true">Active</option>
+              <option value="false">Inactive</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr ng-repeat="player in playerList">
+          <td class="buttonsCell">
+            <div class="btn-toolbar editPlayerButtons">
+              <div class="btn-group viewBtns">
+                  <button type="button" class="btn btn-default glyphicon glyphicon-edit" ng-click="toggleEditMode(player)">
+                  </button>
+                  <button type="button" class="btn btn-default glyphicon glyphicon-trash" ng-click="deletePlayer(player)">
+                  </button>
+              </div>
+            </div>
+          </td>
+          <td class="nameCell"><b>{{player.name}}</b></td>
+          <td class="ipCell">{{player.ip}}</td>
+          <td class="locationCell">Floor {{player.location.floor}} - {{player.location.zone}}</td>
+          <td class="mtimeCell">
+            Created: {{player.created | amDateFormat:'M/D/YYYY'}}
+            <div class="text-primary" ng-show="player.created != player.updated">
+              Updated <span am-time-ago="player.updated"></span>
+            </div>
+          </td>
+          <td class="statusCell">
+            <span class="label label-success" ng-show="player.isActive">Active</span>
+            <span class="label label-default" ng-show="!player.isActive">Inactive</span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
