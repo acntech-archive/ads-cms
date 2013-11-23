@@ -9,14 +9,11 @@
 
 ## Getting started
 ```
-git clone https://github.com/ismarslomic/ads-cms-frontend.git
-cd ads-cms-frontend
-heroku login // only first time
-git clone git@heroku.com:ads-cms-frontend.git distHeroku
+git clone https://github.com/acntech/ads-cms.git
+cd ads-cms
 npm install
-grunt build:heroku
-cd distHeroku
-node server
+bower install
+
 ```
 
 You should be able to see the ADS CMS by open a web browser and go to [http://localhost:5000/](http://localhost:5000/)
