@@ -6,8 +6,9 @@ var adsCmsFrontendApp = angular.module('adsCmsFrontendApp',
             'ngResource',
             'ngAnimate',
             'angularMoment',
-            'angularFileUpload'
+            'blueimp.fileupload'
         ])
+
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {

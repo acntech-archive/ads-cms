@@ -17,6 +17,8 @@
 
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload.css">
+    <link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload-ui.css">
     <link rel="stylesheet" href="bower_components/bootstrap-theme-white-plum/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
     <!-- endbuild -->
@@ -100,6 +102,35 @@
 <script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload Angular JS module -->
+<script src="bower_components/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
+
+
 <!-- endbower -->
 
 <!-- build:js scripts/modules.js -->
@@ -111,6 +142,7 @@
 <script src="scripts/services/mediaplayer.js"></script>
 <script src="scripts/controllers/mediaplayer.js"></script>
 <script src="scripts/controllers/sources/fileupload.js"></script>
+<script src="scripts/controllers/sources/filedestroy.js"></script>
 <!-- endbuild -->
 </body>
 </html>
