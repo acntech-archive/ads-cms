@@ -5,3 +5,4 @@ distHeroku
 .sass-cache
 app/bower_components
 .idea
+*.iml

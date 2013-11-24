@@ -1,0 +1,86 @@
+<div class="well">
+    <h2>Twitter</h2>
+
+    <p>This is the Twitter administration screen.</p>
+</div>
+
+<div class="alert alert-danger" ng-show="errorMessage != null">
+    <p><b>Error:</b> {{errorMessage}}</p>
+</div>
+<div class="alert alert-success alert-dismissable" ng-show="successMessage != null">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p><b>Success:</b> {{successMessage}}</p>
+</div>
+
+<div class="panel panel-default">
+    <div id="twitterOverview" class="panel panel-body" ngCloak>
+        <table class="table table-striped table-responsive">
+            <thead>
+            <tr>
+                <!-- Width-tags are arbitrary -->
+                <th style="width: 11%;" class="buttonsCell"></th>
+                <th style="width: 10%;"><h3>Consumer Key</h3></th>
+                <th style="width: 20%;"><h3>Consumer Secret Key</h3></th>
+                <th style="width: 20%;"><h3>Access-token</h3></th>
+                <th style="width: 25%;"><h3>Secret Access-token</h3></th>
+                <th style="width: 20%;"><h3>Search-words</h3></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr id="editRow" ng-show="editMode" class="animate-show">
+                <td class="buttonsCell">
+                    <div class="btn-toolbar editTwitterConfigButtons">
+                        <div class="btn-group">
+                            <button type="button"
+                                    class="btn btn-lg btn-info glyphicon glyphicon-floppy-disk" ng-click="updateConfig(twitterConfig)"
+                                    ng-enabled="twitterConfig">
+                            </button>
+                            <button type="button" class="btn  btn-lg btn-warning glyphicon glyphicon-remove"
+                                    ng-click="toggleEditMode()">
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td class="cKey-cell">
+                    <input type="text" class="form-control input-lg" ng-model="twitterConfig.consumerKey"
+                           placeholder="Consumer Key">
+                </td>
+                <td class="cSKey-cell">
+                    <input type="text" class="form-control input-lg" ng-model="twitterConfig.consumerSecret"
+                           placeholder="Consumer Secret Key">
+                </td>
+                <td class="aToken-cell">
+                    <input type="text" class="form-control input-lg" ng-model="twitterConfig.accessToken"
+                           placeholder="Access-token">
+                </td>
+                <td class="sAToken-cell">
+                    <input type="text" class="form-control input-lg" ng-model="twitterConfig.accessTokenSecret"
+                           placeholder="Secret Access-token">
+                </td>
+                <td class="hash-cell">
+                    <input type="text" class="form-control input-lg" ng-model="twitterConfig.hashes[0].hash"
+                           placeholder="Search-words">
+                </td>
+            </tr>
+
+            <tr ng-show="!editMode" ng-model="twitterConfig">
+                <td class="buttonsCell">
+                    <div class="btn-toolbar editTwitterConfigButtons">
+                        <div class="btn-group viewBtns">
+                            <button type="button" class="btn btn-default glyphicon glyphicon-edit" ng-click="toggleEditMode(twitterConfig)">
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td class="cKey-cell"><b>{{twitterConfig.consumerKey}}</b></td>
+                <td class="cSKey-cell"><b>{{twitterConfig.consumerSecret}}</b></td>
+                <td class="aToken-cell"><b>{{twitterConfig.accessToken}}</b></td>
+                <td class="sAToken-cell"><b>{{twitterConfig.accessTokenSecret}}</b></td>
+                <td class="hash-cell"><b>{{twitterConfig.hashes[0].hash}}</b></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

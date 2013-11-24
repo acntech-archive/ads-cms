@@ -17,6 +17,10 @@ var adsCmsFrontendApp = angular.module('adsCmsFrontendApp',
         templateUrl: 'views/mediaplayer.html',
         controller: 'MediaplayerCtrl'
       })
+      .when('/twitter', {
+        templateUrl: 'views/twitter.html',
+        controller: 'TwitterCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
