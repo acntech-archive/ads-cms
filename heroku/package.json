@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "gzippo": "~0.2.0",
-        "express": "~3.4.0"
+        "express": "~4.17.1"
     },
     "engines": {
         "node": ">=0.8.0"
